@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mama's website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Hero Image -->
+    <img src="basic.png" alt="Hero Image" class="hero-image" />
+    <!-- Container-->
+
+    <div class="container-scroll">
+        <nav class="fade-in">
+            <ul class="nav-menu">
+                <li><a href="index.html">Начало</a></li>
+                <div class="nav-divider"></div>
+                <li><a href="info.html">За мен</a></li>
+                <div class="nav-divider"></div>
+                <li><a href="index.html#start">Услуги</a></li>
+                <div class="nav-divider"></div>
+                <li><a href="index.html#students">За студенти</a></li>
+                <div class="nav-divider"></div>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+
+        <!-- About Me Section -->
+        <section class="section fade-in">
+            <div class="text slide-in-left">
+                <div class="content">
+                    <p>
+                        Д-Р НЕДЯЛКА КОНСУЛОВА, СПЕЦИАЛИЗИРАН ПСИХИАТЪР С НАД 25 ГОДИНИ ОПИТ В ОБЛАСТТА НА ПСИХИЧНОТО ЗДРАВЕ.
+                    </p>
+                    <p>
+                        <ul>
+                            <div class="content-divider content-divider-white"></div>
+                            <br>ОБРАЗОВАНИЕ<br>
+                            <li>МГ "Д-Р Петър Берон" Варна</li>
+                            <li>МУ "проф д-р Параскев Стоянов" Варна</li>
+                            <li>Специализация Психиатрия - МУ "проф. д-р Параскев Стоянов" Варна</li>
+                            <li>Магистратура "Здравен Мениджмънт" - МУ "проф. д-р Параскев Стоянов" Варна</li>
+                            <li>Магистратура "Приложна Психология" - ВСУ "Черноризец Храбър" Варна</li>
+                            <div class="content-divider content-divider-white"></div>
+                            <br>КВАЛИФИКАЦИЯ<br>
+                            <li>Основен курс когнитивно-поведенческа психотерапия към БАКПП</li>
+                            <div class="content-divider content-divider-white"></div>
+                            <br>ПРОФЕСИОНАЛЕН ОПИТ<br>
+                            <li>Лекар ординатор в психологична клиника към УМБАЛ "Св. Марина" Варна, 2000-2008</li>
+                            <li>Управител, лекар-психиатър, психотерапевт в психиатрична и психотерапевтична практика "AURUM" Варна, 2008-2023 </li>
+                            <li>Психиатрия и гериатрия - Дом за възрастни с хора с деменция и Дом за възрастни хора с увреждания "Св. Илия" Варна, 2008-днес</li>
+                        </ul>
+                    </p>
+    <br>
+                </div>
+                <div class="button-group">
+                    <a href="index.html#start" class="btn btn-white">
+                        Към началната страница
+                    </a>
+                </div>
+            </div>
+            <img src="logoGirlOnly.png" alt="Dr. Konsulova" class="slide-in-right" />
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-white fade-in" id="contacts">
+            <div class="footer-image scale-in">
+                <img src="aurum.jpg" alt="Footer Image" />
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-hours slide-in-right">
+                <h3 style="color: black">д-р Недялка Консулова</h3>
+                <ul>
+                    <li> <img src="phone.png" alt="Phone Icon"
+                            style="height: 30px; width: 30px; margin-right: 0.5rem; background-color: transparent;">
+                        0888 840 429</li>
+                    <li><img src="email.jpg" alt="Email Icon"
+                            style="height: 30px; width: 30px; margin-right: 0.5rem; background-color: transparent;">konsulova@gmail.com
+                    </li>
+                    <li>
+                        За записване на час използвайте формата! <br>
+                        <br>
+                        Консултациите се провеждат по <br>
+                        Whatsapp / Viber / Zoom / Google Meets <br>
+                        в зависимост от вашитe предпочитания!
+                    </li>
+
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scroll Animation JavaScript -->
+    <script>
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
