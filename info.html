@@ -14,6 +14,13 @@
     <img src="basic.png" alt="Hero Image" class="hero-image" />
     <!-- Container-->
 
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <div class="container-scroll">
         <nav class="fade-in">
             <ul class="nav-menu">
@@ -114,8 +121,80 @@
 
         // Observe all elements with animation classes
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize mobile menu first (before animations)
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const nav = document.querySelector('nav');
+            if (mobileMenuToggle && nav) {
+                // Force menu to be closed on page load
+                nav.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+            
             const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
-            animatedElements.forEach(el => observer.observe(el));
+            animatedElements.forEach(el => {
+                // Skip nav from fade-in animation on mobile
+                if (window.innerWidth <= 768 && el === nav) {
+                    return;
+                }
+                observer.observe(el);
+            });
+
+            // Mobile menu toggle functionality
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            if (mobileMenuToggle && nav) {
+                
+                let menuOpen = false;
+
+                // Toggle menu when clicking hamburger button
+                mobileMenuToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    menuOpen = !menuOpen;
+                    if (menuOpen) {
+                        nav.classList.add('active');
+                        mobileMenuToggle.classList.add('active');
+                    } else {
+                        nav.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                }, false);
+
+                // Close menu when clicking on any nav link
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        // Close menu immediately
+                        menuOpen = false;
+                        nav.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                        
+                        // If it's an anchor link, allow navigation after menu closes
+                        const href = this.getAttribute('href');
+                        if (href && href.startsWith('#')) {
+                            e.preventDefault();
+                            // Small delay to allow menu to close smoothly
+                            setTimeout(() => {
+                                const targetId = href.substring(1);
+                                const targetElement = document.getElementById(targetId);
+                                if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }, 300);
+                        }
+                    }, false);
+                });
+
+                // Close menu when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (menuOpen && 
+                        !nav.contains(e.target) && 
+                        !mobileMenuToggle.contains(e.target)) {
+                        menuOpen = false;
+                        nav.classList.remove('active');
+                        mobileMenuToggle.classList.remove('active');
+                    }
+                }, false);
+            }
         });
     </script>
 </body>
