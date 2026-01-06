@@ -288,57 +288,25 @@
                 nav.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
             }
-
-            // On mobile, make all animated elements visible immediately to prevent scroll sticking
-            if (window.innerWidth <= 768) {
-                const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
-                animatedElements.forEach(el => {
-                    el.classList.add('visible');
-                });
-                return; // Skip Intersection Observer setup on mobile
-            }
-
-            // Desktop: Use Intersection Observer for scroll animations
+            
             const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
             animatedElements.forEach(el => {
+                // Skip nav from fade-in animation on mobile
+                if (window.innerWidth <= 768 && el === nav) {
+                    return;
+                }
                 observer.observe(el);
-            });
-
-            // Add expand/collapse functionality
-            const expandButtons = document.querySelectorAll('.expand-btn');
-            expandButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    console.log('Expand button clicked');
-                    const section = button.closest('section');
-                    const expandableContent = section.querySelector('.expandable-content');
-
-                    if (expandableContent.classList.contains('expanded')) {
-                        // Collapse
-                        expandableContent.classList.remove('expanded');
-                        button.classList.remove('expanded');
-                        button.textContent = '+';
-                    } else {
-                        // Expand
-                        expandableContent.classList.add('expanded');
-                        button.classList.add('expanded');
-                        button.textContent = '−';
-                    }
-                });
             });
 
             // Mobile menu toggle functionality
             const navLinks = document.querySelectorAll('.nav-menu a');
 
             if (mobileMenuToggle && nav) {
-                // Ensure menu is closed on page load
-                nav.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
                 
                 let menuOpen = false;
 
                 // Toggle menu when clicking hamburger button
                 mobileMenuToggle.addEventListener('click', function(e) {
-                    console.log('Menu toggle clicked');
                     e.preventDefault();
                     e.stopPropagation();
                     menuOpen = !menuOpen;
@@ -387,6 +355,44 @@
                 }, false);
             }
         });
+
+/*
+            // On mobile, make all animated elements visible immediately to prevent scroll sticking
+            if (window.innerWidth <= 768) {
+                const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+                animatedElements.forEach(el => {
+                    el.classList.add('visible');
+                });
+                return; // Skip Intersection Observer setup on mobile
+            }
+*/
+            // Desktop: Use Intersection Observer for scroll animations
+            const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .scale-in');
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add expand/collapse functionality
+            const expandButtons = document.querySelectorAll('.expand-btn');
+            expandButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    console.log('Expand button clicked');
+                    const section = button.closest('section');
+                    const expandableContent = section.querySelector('.expandable-content');
+
+                    if (expandableContent.classList.contains('expanded')) {
+                        // Collapse
+                        expandableContent.classList.remove('expanded');
+                        button.classList.remove('expanded');
+                        button.textContent = '+';
+                    } else {
+                        // Expand
+                        expandableContent.classList.add('expanded');
+                        button.classList.add('expanded');
+                        button.textContent = '−';
+                    }
+                });
+            });
     </script>
 
     <script>
