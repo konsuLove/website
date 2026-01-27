@@ -36,17 +36,25 @@
     <meta property="twitter:description" content="Д-р Недялка Консулова - лекар психиатър с над 25 години опит във Варна." />
     <meta property="twitter:image" content="https://www.drkonsulova.com/logoGirlOnly.png" />
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="basicNew.png" as="image" fetchpriority="high">
+    <link rel="preload" href="style.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
     <!-- Hero Image -->
-    <img src="basicNew.png" alt="д-р Недялка Консулова - Психиатър и психотерапевт Варна" class="hero-image" />
+    <img src="basicNew.png" alt="д-р Недялка Консулова - Психиатър и психотерапевт Варна" class="hero-image" fetchpriority="high" decoding="async" />
     <!-- Container-->
 
     <!-- Mobile Menu Toggle -->
@@ -107,13 +115,13 @@
                     </a>
                 </div>
             </div>
-            <img src="logoGirlOnly.png" alt="д-р Недялка Консулова - Лекар психиатър Варна" class="slide-in-right" />
+            <img src="logoGirlOnly.png" alt="д-р Недялка Консулова - Лекар психиатър Варна" class="slide-in-right" loading="lazy" decoding="async" />
         </section>
 
         <!-- Footer -->
         <footer class="footer-white fade-in" id="contacts">
             <div class="footer-image scale-in">
-                <img src="basicNew.png" alt="д-р Недялка Консулова - Контакти и адрес МЦ МЕДИЧИ Варна" />
+                <img src="basicNew.png" alt="д-р Недялка Консулова - Контакти и адрес МЦ МЕДИЧИ Варна" loading="lazy" decoding="async" />
             </div>
 
             <div class="footer-divider"></div>
@@ -135,9 +143,9 @@
                     </li>
                     <li>
                         Консултации на кабинет: <strong>МЦ "МЕДИЧИ"</strong> <br>
-                        <address>улица "Генерал Киселов" 11, Варна</address> 
+                        <address>улица "Генерал Киселов" 11, Варна</address>
                         <span class="phone-icon"></span>
-                        <a href="tel:052635707">052 635 707</a></li>
+                        <a href="tel:052635707">052 635 707</a>
                     </li>
                 </ul>
             </div>

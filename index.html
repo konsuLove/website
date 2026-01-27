@@ -37,10 +37,19 @@
     <meta property="twitter:description" content="Д-р Недялка Консулова - лекар психиатър с над 25 години опит във Варна. Психиатрични консултации и психотерапия." />
     <meta property="twitter:image" content="https://drkonsulova.com/basicNew.png" />
     
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="basicNew.png" as="image" fetchpriority="high">
+    <link rel="preload" href="style.css" as="style">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Structured Data (JSON-LD) -->
@@ -139,7 +148,7 @@
 <body>
 
     <!-- Hero Image -->
-    <img src="basicNew.png" alt="д-р Недялка Консулова - Психиатр и психотерапевт във Варна" class="hero-image" />
+    <img src="basicNew.png" alt="д-р Недялка Консулова - Психиатр и психотерапевт във Варна" class="hero-image" fetchpriority="high" decoding="async" />
     <!-- Container-->
 
     <!-- Mobile Menu Toggle -->
@@ -164,7 +173,7 @@
 
         <!-- Section 1 -->
         <section class="section" id="start">
-            <img src="Anxiety.png" alt="Лечение на тревожност и депресия - Психиатрична консултация Варна" class="slide-in-left" />
+            <img src="Anxiety.png" alt="Лечение на тревожност и депресия - Психиатрична консултация Варна" class="slide-in-left" loading="lazy" decoding="async" />
             <div class="text slide-in-right">
                 <div class="content">
                     <ul>
@@ -215,19 +224,19 @@
                         <span class="meeting-icon"></span>
                         ОНЛАЙН
                     </button>
-                    <button class="btn btn-primary" onclick="openOfficeModal('ПСИХОКОНСУЛТАТИВНА СЕСИЯ')";">
+                    <button class="btn btn-primary" onclick="openOfficeModal('ПСИХОКОНСУЛТАТИВНА СЕСИЯ')">
                         <span class="person-icon"></span>
                         НА КАБИНЕТ
                     </button>
                 </div>
             </div>
-            <img src="burnout.png" alt="Психоконсултативна програма при бърнаут - Лечение на стрес Варна" class="slide-in-right" />
+            <img src="burnout.png" alt="Психоконсултативна програма при бърнаут - Лечение на стрес Варна" class="slide-in-right" loading="lazy" decoding="async" />
             <button class="expand-btn">+</button>
         </section>
 
         <!-- Section 3 -->
         <section class="section">
-            <img src="Progress.png" alt="Психоконсултативна програма за личностно израстване - Психотерапия Варна" class="slide-in-left" />
+            <img src="Progress.png" alt="Психоконсултативна програма за личностно израстване - Психотерапия Варна" class="slide-in-left" loading="lazy" decoding="async" />
             <div class="text slide-in-right">
                 <div class="content">
                     <h3 class="centered-text">ПСИХОКОНСУЛТАТИВНА ПРОГРАМА ЗА ЛИЧНОСТНО ИЗРАСТВАНЕ</h3>
@@ -285,12 +294,12 @@
                     </button>
                 </div>
             </div>
-            <img src="Family.png" alt="Психологическо консултиране за родители - Родителски умения Варна" class="slide-in-right" />
+            <img src="Family.png" alt="Психологическо консултиране за родители - Родителски умения Варна" class="slide-in-right" loading="lazy" decoding="async" />
         </section>
 
         <!-- Section 5 -->
         <section class="section" id="students">
-            <img src="Students.png" alt="Обучителна програма по психологично консултиране за студенти Варна" class="slide-in-left" />
+            <img src="Students.png" alt="Обучителна програма по психологично консултиране за студенти Варна" class="slide-in-left" loading="lazy" decoding="async" />
             <div class="text slide-in-right">
                 <div class="content">
                     <h3 class="centered-text">ОБУЧИТЕЛНА ПРОГРАМА ПО ПСИХОЛОГИЧНО КОНСУЛТИРАНЕ</h3>
@@ -351,13 +360,13 @@
                     </button>
                 </div>
             </div>
-            <img src="dementia.png" alt="Лечение на деменция и гериатрична психиатрия - Домашни посещения Варна" class="slide-in-right" />
+            <img src="dementia.png" alt="Лечение на деменция и гериатрична психиатрия - Домашни посещения Варна" class="slide-in-right" loading="lazy" decoding="async" />
         </section>
 
         <!-- Footer -->
         <footer class="footer-white fade-in" id="contacts">
             <div class="footer-image scale-in">
-                <img src="basicNew.png" alt="д-р Недялка Консулова - Контакти и адрес МЦ МЕДИЧИ Варна" />
+                <img src="basicNew.png" alt="д-р Недялка Консулова - Контакти и адрес МЦ МЕДИЧИ Варна" loading="lazy" decoding="async" />
             </div>
 
             <div class="footer-divider"></div>
@@ -381,7 +390,7 @@
                         Консултации на кабинет: <strong>МЦ "МЕДИЧИ"</strong> <br>
                         <address>улица "Генерал Киселов" 11, Варна</address>
                         <span class="phone-icon"></span>
-                        <a href="tel:052635707">052 635 707</a></li>
+                        <a href="tel:052635707">052 635 707</a>
                     </li>
                 </ul>
             </div>
@@ -706,7 +715,7 @@
                 </div>
 
                 <div class="modal-actions">
-                    <button class="btn btn-primary" onclick="window.open('tel: 0877479979'); closeHomeModal();">
+                    <button class="btn btn-primary" onclick="window.open('tel:0877479979'); closeHomeModal();">
                         Позвъни за записване: 0877 479 979
                     </button>
                 </div>
@@ -715,8 +724,9 @@
     </div>
 </body>
 
-            <!-- Calendly badge widget begin -->
-            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+            <!-- Calendly badge widget begin - Loaded asynchronously for performance -->
+            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" media="print" onload="this.media='all'">
+            <noscript><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet"></noscript>
+            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async defer></script>
             <!-- Calendly badge widget end -->
 </html>

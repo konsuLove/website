@@ -17,6 +17,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-display: swap; /* Optimize font loading */
     /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;
     overflow-y:auto;
@@ -247,9 +248,13 @@ nav {
 }
 
 .footer-divider {
-    width: 1px;
-    background-color: #7da0a9;
-    /* Dusty Blue Divider */
+    width: 2px;
+    height: 300px;
+    background: linear-gradient(to bottom, transparent, rgba(217, 119, 6, 0.8), transparent);
+    margin: 0 1.5rem;
+    opacity: 0.8;
+    align-self: center;
+    flex-shrink: 0;
 }
 
 .footer-hours {
