@@ -273,6 +273,15 @@ nav {
     font-size: 1.2rem;
 }
 
+.footer-hours a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-hours a:hover {
+    text-decoration: underline;
+}
+
 /* Modern Button Styling - Matching Nav Menu */
 .btn {
     background: rgba(255, 255, 255, 0.95);
